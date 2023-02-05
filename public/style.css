@@ -19,3 +19,10 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+.single-puppy-photo {
+  max-height: 500px;
+  max-width: 500px;
+  height: auto;
+  width: auto;
+}

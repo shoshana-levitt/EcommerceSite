@@ -24,10 +24,6 @@ const Allpuppies = () => {
     dispatch(me());
   }, [dispatch]);
 
-  // let capitalizeBreed = (puppy) => {
-  //   return puppy.breed.charAt(0).toUpperCase() + puppy.breed.str.slice(1);
-  // };
-
   return (
     <div>
       <div position="sticky">
@@ -73,7 +69,9 @@ const Allpuppies = () => {
                           component="div"
                           align="center"
                         >
-                          {puppy.name} the {puppy.breed}
+                          {puppy.name} the{" "}
+                          {puppy.breed.charAt(0).toUpperCase() +
+                            puppy.breed.slice(1)}
                         </Typography>
                       </CardContent>
                     </CardActionArea>
