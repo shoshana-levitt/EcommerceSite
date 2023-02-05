@@ -24,11 +24,17 @@ const Allpuppies = () => {
     dispatch(me());
   }, [dispatch]);
 
+  // let capitalizeBreed = (puppy) => {
+  //   return puppy.breed.charAt(0).toUpperCase() + puppy.breed.str.slice(1);
+  // };
+
   return (
     <div>
-      <Typography variant="h3" component="h2" align="center" sx={{ p: 2 }}>
-        Puppies
-      </Typography>
+      <div position="sticky">
+        <Typography variant="h3" component="h2" align="center" sx={{ p: 2 }}>
+          Puppies
+        </Typography>
+      </div>
       <Box sx={{ width: "100%" }}>
         <Grid
           container
@@ -46,22 +52,27 @@ const Allpuppies = () => {
                 xs={12}
                 sm={6}
                 md={4}
-                sx={{ m: 0.5 }}
+                sx={{ m: 0.75 }}
                 style={{
                   display: "inline-block",
                 }}
               >
                 <NavLink to={`/puppies/${puppy.id}`}>
-                  <Card sx={{ maxWidth: 345 }}>
+                  <Card sx={{ width: 300 }}>
                     <CardActionArea>
                       <CardMedia
                         component="img"
-                        height="140"
+                        height="250"
                         image={puppy.photoURL}
                         alt="puppy image"
                       />
                       <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
+                        <Typography
+                          gutterBottom
+                          variant="h5"
+                          component="div"
+                          align="center"
+                        >
                           {puppy.name} the {puppy.breed}
                         </Typography>
                       </CardContent>
