@@ -11,6 +11,7 @@ import {
   Badge,
   Avatar,
   Typography,
+  Box,
 } from "@mui/material";
 import { ShoppingCart, Home } from "@mui/icons-material";
 import { grey, blue } from "@mui/material/colors";
@@ -37,38 +38,50 @@ const Navbar = () => {
     <div>
       <AppBar position="fixed" sx={{ bgcolor: grey[300] }}>
         <Toolbar sx={{ p: -1 }}>
-          <IconButton href="/">
-            <Home></Home>
-          </IconButton>
-          <Button href="/puppies" variant="text" sx={{ m: 1, color: "black" }}>
-            All Puppies
-          </Button>
-          {user.isAdmin && (
-            <div>
-              <Button
-                href="/allusers"
-                variant="text"
-                sx={{ m: 1, color: "black" }}
-              >
-                All Users
-              </Button>
-              <Button variant="text" sx={{ m: 1, color: "blue" }}>
-                You Are In The Admin View
-              </Button>
-            </div>
-          )}
+          <Box sx={{ display: "flex", flexGrow: 1 }}>
+            <IconButton href="/" disableRipple>
+              <Home></Home>
+            </IconButton>
+            <Button
+              href="/puppies"
+              variant="text"
+              disableRipple
+              sx={{ m: 1, color: "black" }}
+            >
+              All Puppies
+            </Button>
+            {user.isAdmin && (
+              <div>
+                <Button
+                  href="/allusers"
+                  variant="text"
+                  disableRipple
+                  sx={{ m: 1, color: "black" }}
+                >
+                  All Users
+                </Button>
+                <Button
+                  variant="text"
+                  disableRipple
+                  sx={{ m: 1, color: "blue" }}
+                >
+                  You Are In The Admin View
+                </Button>
+              </div>
+            )}
+          </Box>
           {isLoggedIn ? (
             <div>
               {/* The navbar will show these links after you log in */}
               <Button
                 onClick={logoutAndRedirectHome}
-                color="secondary"
                 variant="text"
-                sx={{ m: 1 }}
+                disableRipple
+                sx={{ m: 1, color: "black" }}
               >
                 Log Out
               </Button>
-              <IconButton href="/user">
+              <IconButton href="/user" disableRipple>
                 <Avatar sx={{ bgcolor: blue[300] }}>
                   {user.firstName.charAt(0)}
                 </Avatar>
@@ -79,6 +92,7 @@ const Navbar = () => {
               <Button
                 href="/login"
                 variant="text"
+                disableRipple
                 sx={{ m: 1, color: "black" }}
               >
                 Log In
@@ -86,6 +100,7 @@ const Navbar = () => {
               <Button
                 href="/signup"
                 variant="text"
+                disableRipple
                 sx={{ m: 1, color: "black" }}
               >
                 Sign Up
@@ -104,6 +119,7 @@ const Navbar = () => {
                   : null
               }
               color="primary"
+              disableRipple
               sx={{ m: 2 }}
             >
               <ShoppingCart />
