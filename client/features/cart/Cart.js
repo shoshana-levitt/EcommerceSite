@@ -10,6 +10,7 @@ import {
   fetchCart,
   removeProductFromCart,
 } from "./CartSlice";
+import { Button, Typography } from "@mui/material";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -125,41 +126,54 @@ const Cart = () => {
 
   return (
     <>
-      {cartToShow[0] === undefined && <p>Your cart is empty.</p>}
+      {cartToShow[0] === undefined && (
+        <Typography>Your cart is empty.</Typography>
+      )}
 
-      {cartToShow[0] && <button onClick={clearCartHandler}>Empty Cart</button>}
+      {cartToShow[0] && (
+        <Button variation="countained" onClick={clearCartHandler}>
+          Empty Cart
+        </Button>
+      )}
       {cartToShow[0] &&
         cartToShow.map((product) => {
           return (
             <div key={product.id}>
               <img src={product.photoURL} />
-              <p>{product.name}</p>
+              <Typography>{product.name}</Typography>
               <button
                 disabled={product.quantity < 2}
                 onClick={() => decrementProductHandler(product)}
               >
                 -
               </button>
-              <p>{product.quantity}</p>
+              <Typography>{product.quantity}</Typography>
               <button onClick={() => incrementProductHandler(product)}>
                 +
               </button>
-              <p>${product.price.toFixed(2)}</p>
-              <button onClick={() => removeProductHandler(product)}>
+              <Typography>${product.price.toFixed(2)}</Typography>
+              <Button
+                variation="contained"
+                onClick={() => removeProductHandler(product)}
+              >
                 Remove
-              </button>
+              </Button>
             </div>
           );
         })}
       {cartToShow[0] && (
-        <h5>
+        <Typography>
           Total Price: $
           {cartToShow
             .reduce((accum, product) => accum + product.price, 0)
             .toFixed(2)}
-        </h5>
+        </Typography>
       )}
-      {cartToShow[0] && <button onClick={checkoutHandler}>Checkout</button>}
+      {cartToShow[0] && (
+        <Button variation="contained" onClick={checkoutHandler}>
+          Check Out
+        </Button>
+      )}
     </>
   );
 };
