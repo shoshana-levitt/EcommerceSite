@@ -10,7 +10,7 @@ import {
   fetchCart,
   removeProductFromCart,
 } from "./CartSlice";
-import { Button, Typography } from "@mui/material";
+import { Button, ButtonGroup, Typography } from "@mui/material";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -141,16 +141,18 @@ const Cart = () => {
             <div key={product.id}>
               <img src={product.photoURL} />
               <Typography>{product.name}</Typography>
-              <button
-                disabled={product.quantity < 2}
-                onClick={() => decrementProductHandler(product)}
-              >
-                -
-              </button>
-              <Typography>{product.quantity}</Typography>
-              <button onClick={() => incrementProductHandler(product)}>
-                +
-              </button>
+              <ButtonGroup variant="contained">
+                <Button
+                  disabled={product.quantity < 2}
+                  onClick={() => decrementProductHandler(product)}
+                >
+                  -
+                </Button>
+                <Button disabled>{product.quantity}</Button>
+                <Button onClick={() => incrementProductHandler(product)}>
+                  +
+                </Button>
+              </ButtonGroup>
               <Typography>${product.price.toFixed(2)}</Typography>
               <Button
                 variation="contained"
