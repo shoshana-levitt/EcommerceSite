@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Typography } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import { me } from "../auth/authSlice";
 
 const Profile = () => {
@@ -14,13 +14,14 @@ const Profile = () => {
 
   return (
     <div>
-      <Typography variant="h1">Welcome, {user.firstName}!</Typography>
-      {user.isAdmin && (
-        <Typography variant="h3">ADMINISTRATOR ACCOUNT</Typography>
-      )}
-      <Typography variant="h6">
-        {user.firstName} {user.lastName}
-      </Typography>
+      <Box m={2}>
+        <Typography variant="h2">
+          Welcome, {user.firstName} {user.lastName}!
+        </Typography>
+        {user.isAdmin && (
+          <Typography variant="h3">ADMINISTRATOR ACCOUNT</Typography>
+        )}
+      </Box>
     </div>
   );
 };
