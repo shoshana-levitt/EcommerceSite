@@ -10,7 +10,7 @@ import {
   fetchCart,
   removeProductFromCart,
 } from "./CartSlice";
-import { Button, ButtonGroup, Typography } from "@mui/material";
+import { Button, ButtonGroup, Typography, Paper } from "@mui/material";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -138,29 +138,31 @@ const Cart = () => {
       {cartToShow[0] &&
         cartToShow.map((product) => {
           return (
-            <div key={product.id}>
-              <img src={product.photoURL} />
-              <Typography>{product.name}</Typography>
-              <ButtonGroup variant="contained">
+            <Paper elevation={2}>
+              <div key={product.id}>
+                <img src={product.photoURL} />
+                <Typography>{product.name}</Typography>
+                <ButtonGroup variant="contained">
+                  <Button
+                    disabled={product.quantity < 2}
+                    onClick={() => decrementProductHandler(product)}
+                  >
+                    -
+                  </Button>
+                  <Button disabled>{product.quantity}</Button>
+                  <Button onClick={() => incrementProductHandler(product)}>
+                    +
+                  </Button>
+                </ButtonGroup>
+                <Typography>${product.price.toFixed(2)}</Typography>
                 <Button
-                  disabled={product.quantity < 2}
-                  onClick={() => decrementProductHandler(product)}
+                  variation="contained"
+                  onClick={() => removeProductHandler(product)}
                 >
-                  -
+                  Remove
                 </Button>
-                <Button disabled>{product.quantity}</Button>
-                <Button onClick={() => incrementProductHandler(product)}>
-                  +
-                </Button>
-              </ButtonGroup>
-              <Typography>${product.price.toFixed(2)}</Typography>
-              <Button
-                variation="contained"
-                onClick={() => removeProductHandler(product)}
-              >
-                Remove
-              </Button>
-            </div>
+              </div>
+            </Paper>
           );
         })}
       {cartToShow[0] && (
