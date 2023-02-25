@@ -72,19 +72,17 @@ const Navbar = () => {
                 alignItems="center"
                 justifyContent="center"
               >
-                <Typography
-                  align="center"
-                  // variant="text"
-                  // disableRipple
-                  // sx={{ m: 1, color: "blue" }}
-                >
-                  You Are In The Admin View
-                </Typography>
+                {user.isAdmin && (
+                  <Typography align="center" color="blue">
+                    ADMIN VIEW
+                  </Typography>
+                )}
                 <Button
                   onClick={logoutAndRedirectHome}
                   variant="text"
                   disableRipple
                   sx={{ m: 1, color: "black" }}
+                  size="small"
                 >
                   Log Out
                 </Button>
