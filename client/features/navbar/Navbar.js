@@ -37,7 +37,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <AppBar position="fixed" sx={{ bgcolor: grey[300] }}>
+      <AppBar position="fixed" sx={{ bgcolor: "#b6d7a8" }}>
         <Toolbar sx={{ p: -1 }}>
           <Box sx={{ display: "flex", flexGrow: 1 }}>
             <IconButton href="/" disableRipple>
