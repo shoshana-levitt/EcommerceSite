@@ -10,7 +10,7 @@ import {
   fetchCart,
   removeProductFromCart,
 } from "./CartSlice";
-import { Button, ButtonGroup, Typography, Paper } from "@mui/material";
+import { Button, ButtonGroup, Typography, Paper, Stack } from "@mui/material";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -138,30 +138,50 @@ const Cart = () => {
       {cartToShow[0] &&
         cartToShow.map((product) => {
           return (
-            <Paper elevation={2}>
+            <Paper elevation={2} sx={{ width: 600 }}>
+              {/* <Card sx={{ width: 300 }}> */}
               <div key={product.id}>
-                <img src={product.photoURL} />
-                <Typography>{product.name}</Typography>
-                <ButtonGroup variant="contained">
-                  <Button
-                    disabled={product.quantity < 2}
-                    onClick={() => decrementProductHandler(product)}
-                  >
-                    -
-                  </Button>
-                  <Button disabled>{product.quantity}</Button>
-                  <Button onClick={() => incrementProductHandler(product)}>
-                    +
-                  </Button>
-                </ButtonGroup>
-                <Typography>${product.price.toFixed(2)}</Typography>
-                <Button
-                  variation="contained"
-                  onClick={() => removeProductHandler(product)}
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  justifyContent="center"
                 >
-                  Remove
-                </Button>
+                  <Stack
+                    direction="column"
+                    alignItems="center"
+                    justifyContent="center"
+                  >
+                    <Typography>{product.name}</Typography>
+                    <img src={product.photoURL} />
+                  </Stack>
+                  <Stack
+                    direction="column"
+                    alignItems="center"
+                    justifyContent="center"
+                  >
+                    <ButtonGroup variant="contained">
+                      <Button
+                        disabled={product.quantity < 2}
+                        onClick={() => decrementProductHandler(product)}
+                      >
+                        -
+                      </Button>
+                      <Button disabled>{product.quantity}</Button>
+                      <Button onClick={() => incrementProductHandler(product)}>
+                        +
+                      </Button>
+                    </ButtonGroup>
+                    <Typography>${product.price.toFixed(2)}</Typography>
+                  </Stack>
+                  <Button
+                    variation="contained"
+                    onClick={() => removeProductHandler(product)}
+                  >
+                    Remove
+                  </Button>
+                </Stack>
               </div>
+              {/* </Card> */}
             </Paper>
           );
         })}
