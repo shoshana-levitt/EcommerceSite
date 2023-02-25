@@ -10,7 +10,18 @@ import {
   fetchCart,
   removeProductFromCart,
 } from "./CartSlice";
-import { Button, ButtonGroup, Typography, Paper, Stack } from "@mui/material";
+import {
+  Button,
+  ButtonGroup,
+  Typography,
+  Paper,
+  Stack,
+  Card,
+  CardContent,
+  CardMedia,
+  CardActionArea,
+  Box,
+} from "@mui/material";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -138,51 +149,51 @@ const Cart = () => {
       {cartToShow[0] &&
         cartToShow.map((product) => {
           return (
-            <Paper elevation={2} sx={{ width: 600 }}>
-              {/* <Card sx={{ width: 300 }}> */}
+            <Box>
               <div key={product.id}>
-                <Stack
-                  direction="row"
-                  alignItems="center"
-                  justifyContent="center"
-                >
-                  <Stack
-                    direction="column"
-                    alignItems="center"
-                    justifyContent="center"
-                  >
-                    <Typography>{product.name}</Typography>
-                    <img src={product.photoURL} />
-                  </Stack>
-                  <Stack
-                    direction="column"
-                    alignItems="center"
-                    justifyContent="center"
-                  >
-                    <ButtonGroup variant="contained">
-                      <Button
-                        disabled={product.quantity < 2}
-                        onClick={() => decrementProductHandler(product)}
+                <Card sx={{ width: 300 }}>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      height="250"
+                      image={product.photoURL}
+                      alt="puppy image"
+                    />
+                    <CardContent>
+                      <Typography
+                        gutterBottom
+                        variant="h5"
+                        component="div"
+                        align="center"
                       >
-                        -
-                      </Button>
-                      <Button disabled>{product.quantity}</Button>
-                      <Button onClick={() => incrementProductHandler(product)}>
-                        +
-                      </Button>
-                    </ButtonGroup>
-                    <Typography>${product.price.toFixed(2)}</Typography>
-                  </Stack>
+                        {product.name} the{" "}
+                        {product.breed.charAt(0).toUpperCase() +
+                          product.breed.slice(1)}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+                <ButtonGroup variant="contained">
                   <Button
-                    variation="contained"
-                    onClick={() => removeProductHandler(product)}
+                    disabled={product.quantity < 2}
+                    onClick={() => decrementProductHandler(product)}
                   >
-                    Remove
+                    -
                   </Button>
-                </Stack>
+                  <Button disabled>{product.quantity}</Button>
+                  <Button onClick={() => incrementProductHandler(product)}>
+                    +
+                  </Button>
+                </ButtonGroup>
+                <Typography>${product.price.toFixed(2)}</Typography>
+                <Button
+                  variation="contained"
+                  onClick={() => removeProductHandler(product)}
+                >
+                  Remove
+                </Button>
               </div>
-              {/* </Card> */}
-            </Paper>
+            </Box>
           );
         })}
       {cartToShow[0] && (
