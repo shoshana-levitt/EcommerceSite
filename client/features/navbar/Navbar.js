@@ -87,7 +87,7 @@ const Navbar = () => {
                   Log Out
                 </Button>
                 <IconButton href="/user" disableRipple>
-                  <Avatar sx={{ bgcolor: blue[300] }}>
+                  <Avatar sx={{ bgcolor: "#93c47d" }}>
                     {user.firstName.charAt(0)}
                   </Avatar>
                 </IconButton>
