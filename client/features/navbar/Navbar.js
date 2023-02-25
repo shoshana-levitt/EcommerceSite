@@ -12,6 +12,7 @@ import {
   Avatar,
   Typography,
   Box,
+  Stack,
 } from "@mui/material";
 import { ShoppingCart, Home } from "@mui/icons-material";
 import { grey, blue } from "@mui/material/colors";
@@ -60,32 +61,39 @@ const Navbar = () => {
                 >
                   All Users
                 </Button>
-                <Button
-                  variant="text"
-                  disableRipple
-                  sx={{ m: 1, color: "blue" }}
-                >
-                  You Are In The Admin View
-                </Button>
               </div>
             )}
           </Box>
           {isLoggedIn ? (
             <div>
               {/* The navbar will show these links after you log in */}
-              <Button
-                onClick={logoutAndRedirectHome}
-                variant="text"
-                disableRipple
-                sx={{ m: 1, color: "black" }}
+              <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="center"
               >
-                Log Out
-              </Button>
-              <IconButton href="/user" disableRipple>
-                <Avatar sx={{ bgcolor: blue[300] }}>
-                  {user.firstName.charAt(0)}
-                </Avatar>
-              </IconButton>
+                <Typography
+                  align="center"
+                  // variant="text"
+                  // disableRipple
+                  // sx={{ m: 1, color: "blue" }}
+                >
+                  You Are In The Admin View
+                </Typography>
+                <Button
+                  onClick={logoutAndRedirectHome}
+                  variant="text"
+                  disableRipple
+                  sx={{ m: 1, color: "black" }}
+                >
+                  Log Out
+                </Button>
+                <IconButton href="/user" disableRipple>
+                  <Avatar sx={{ bgcolor: blue[300] }}>
+                    {user.firstName.charAt(0)}
+                  </Avatar>
+                </IconButton>
+              </Stack>
             </div>
           ) : (
             <div>
