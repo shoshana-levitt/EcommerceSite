@@ -149,49 +149,58 @@ const Cart = () => {
       {cartToShow[0] &&
         cartToShow.map((product) => {
           return (
-            <Box>
+            <Box m={2}>
               <div key={product.id}>
-                <Card sx={{ width: 300 }}>
-                  <CardActionArea>
-                    <CardMedia
-                      component="img"
-                      height="250"
-                      image={product.photoURL}
-                      alt="puppy image"
-                    />
-                    <CardContent>
-                      <Typography
-                        gutterBottom
-                        variant="h5"
-                        component="div"
-                        align="center"
-                      >
-                        {product.name} the{" "}
-                        {product.breed.charAt(0).toUpperCase() +
-                          product.breed.slice(1)}
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-                <ButtonGroup variant="contained">
-                  <Button
-                    disabled={product.quantity < 2}
-                    onClick={() => decrementProductHandler(product)}
+                <Stack direction="row" alignItems="center">
+                  <Card sx={{ width: 300 }}>
+                    <CardActionArea>
+                      <CardMedia
+                        component="img"
+                        height="250"
+                        image={product.photoURL}
+                        alt="puppy image"
+                      />
+                      <CardContent>
+                        <Typography
+                          gutterBottom
+                          variant="h5"
+                          component="div"
+                          align="center"
+                        >
+                          {product.name} the{" "}
+                          {product.breed.charAt(0).toUpperCase() +
+                            product.breed.slice(1)}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                  <Stack
+                    direction="column"
+                    alignItems="center"
+                    justifyContent="center"
+                    m={2}
                   >
-                    -
-                  </Button>
-                  <Button disabled>{product.quantity}</Button>
-                  <Button onClick={() => incrementProductHandler(product)}>
-                    +
-                  </Button>
-                </ButtonGroup>
-                <Typography>${product.price.toFixed(2)}</Typography>
-                <Button
-                  variation="contained"
-                  onClick={() => removeProductHandler(product)}
-                >
-                  Remove
-                </Button>
+                    <ButtonGroup variant="contained">
+                      <Button
+                        disabled={product.quantity < 2}
+                        onClick={() => decrementProductHandler(product)}
+                      >
+                        -
+                      </Button>
+                      <Button disabled>{product.quantity}</Button>
+                      <Button onClick={() => incrementProductHandler(product)}>
+                        +
+                      </Button>
+                    </ButtonGroup>
+                    <Typography>${product.price.toFixed(2)}</Typography>
+                    <Button
+                      variation="contained"
+                      onClick={() => removeProductHandler(product)}
+                    >
+                      Remove
+                    </Button>
+                  </Stack>
+                </Stack>
               </div>
             </Box>
           );
