@@ -21,6 +21,11 @@ import {
   CardMedia,
   CardActionArea,
   Box,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
 } from "@mui/material";
 import { ShoppingCartCheckout } from "@mui/icons-material";
 
@@ -122,6 +127,7 @@ const Cart = () => {
         (oldProduct) => oldProduct.id !== product.id
       );
       window.localStorage.setItem("cart", JSON.stringify(savedCart));
+      setOpen(false);
       dispatch(CartSlice.actions.removeProduct(product));
     }
   };
@@ -134,6 +140,16 @@ const Cart = () => {
       dispatch(CartSlice.actions.clearCart());
     }
     navigate("/checkout");
+  };
+
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
@@ -150,8 +166,8 @@ const Cart = () => {
       {cartToShow[0] &&
         cartToShow.map((product) => {
           return (
-            <Box m={2}>
-              <div key={product.id}>
+            <div key={product.id}>
+              <Box m={2}>
                 <Stack direction="row" alignItems="center">
                   <Card sx={{ width: 300 }}>
                     <CardActionArea>
@@ -194,16 +210,29 @@ const Cart = () => {
                       </Button>
                     </ButtonGroup>
                     <Typography>${product.price.toFixed(2)}</Typography>
-                    <Button
-                      variation="contained"
-                      onClick={() => removeProductHandler(product)}
-                    >
+                    <Button variation="contained" onClick={handleOpen}>
                       Remove
                     </Button>
                   </Stack>
                 </Stack>
-              </div>
-            </Box>
+              </Box>
+              {open && (
+                <Dialog open={open} onClose={handleClose}>
+                  <DialogTitle>Remove Puppy</DialogTitle>
+                  <DialogContent>
+                    <DialogContentText>
+                      Are you sure you want to remove this puppy?
+                    </DialogContentText>
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={handleClose}>No</Button>
+                    <Button onClick={() => removeProductHandler(product)}>
+                      Yes, Remove
+                    </Button>
+                  </DialogActions>
+                </Dialog>
+              )}
+            </div>
           );
         })}
       {cartToShow[0] && (
