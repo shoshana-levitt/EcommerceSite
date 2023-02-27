@@ -113,7 +113,7 @@ const Navbar = () => {
               </Button>
             </div>
           )}
-          <IconButton href="/cart">
+          <IconButton href="/cart" disableRipple>
             <Badge
               badgeContent={
                 isLoggedIn
@@ -125,7 +125,6 @@ const Navbar = () => {
                   : null
               }
               color="primary"
-              disableRipple
               sx={{ m: 2 }}
             >
               <ShoppingCart />
