@@ -166,13 +166,15 @@ const Cart = () => {
   return (
     <>
       {cartToShow[0] === undefined && (
-        <Typography>Your cart is empty.</Typography>
+        <Box m={2}>
+          <Typography variant="h3">Your cart is empty.</Typography>
+        </Box>
       )}
 
       {cartToShow[0] && (
         <div>
           <Button variation="countained" onClick={handleEmptyOpen}>
-            Empty Cart
+            Clear Cart
           </Button>
           {emptyOpen && (
             <Dialog open={emptyOpen} onClose={handleEmptyClose}>
