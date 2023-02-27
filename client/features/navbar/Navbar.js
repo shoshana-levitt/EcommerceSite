@@ -40,14 +40,31 @@ const Navbar = () => {
       <AppBar position="fixed" sx={{ bgcolor: "#b6d7a8" }}>
         <Toolbar sx={{ p: -1 }}>
           <Box sx={{ display: "flex", flexGrow: 1 }}>
-            <IconButton href="/" disableRipple>
+            <IconButton
+              href="/"
+              disableRipple="true"
+              sx={{
+                color: "black",
+                ":hover": {
+                  backgroundColor: "transparent",
+                  color: "#274e13",
+                },
+              }}
+            >
               <Home></Home>
             </IconButton>
             <Button
               href="/puppies"
               variant="text"
-              disableRipple
-              sx={{ m: 1, color: "black" }}
+              disableRipple="true"
+              sx={{
+                m: 1,
+                color: "black",
+                ":hover": {
+                  backgroundColor: "transparent",
+                  color: "#274e13",
+                },
+              }}
             >
               All Puppies
             </Button>
@@ -56,8 +73,15 @@ const Navbar = () => {
                 <Button
                   href="/allusers"
                   variant="text"
-                  disableRipple
-                  sx={{ m: 1, color: "black" }}
+                  disableRipple="true"
+                  sx={{
+                    m: 1,
+                    color: "black",
+                    ":hover": {
+                      backgroundColor: "transparent",
+                      color: "#274e13",
+                    },
+                  }}
                 >
                   All Users
                 </Button>
@@ -80,8 +104,15 @@ const Navbar = () => {
                 <Button
                   onClick={logoutAndRedirectHome}
                   variant="text"
-                  disableRipple
-                  sx={{ m: 1, color: "black" }}
+                  disableRipple="true"
+                  sx={{
+                    m: 1,
+                    color: "black",
+                    ":hover": {
+                      backgroundColor: "transparent",
+                      color: "#274e13",
+                    },
+                  }}
                   size="small"
                 >
                   Log Out
@@ -98,8 +129,15 @@ const Navbar = () => {
               <Button
                 href="/login"
                 variant="text"
-                disableRipple
-                sx={{ m: 1, color: "black" }}
+                disableRipple="true"
+                sx={{
+                  m: 1,
+                  color: "black",
+                  ":hover": {
+                    backgroundColor: "transparent",
+                    color: "#274e13",
+                  },
+                }}
               >
                 Log In
               </Button>
@@ -107,13 +145,30 @@ const Navbar = () => {
                 href="/signup"
                 variant="text"
                 disableRipple
-                sx={{ m: 1, color: "black" }}
+                sx={{
+                  m: 1,
+                  color: "black",
+                  ":hover": {
+                    backgroundColor: "transparent",
+                    color: "#274e13",
+                  },
+                }}
               >
                 Sign Up
               </Button>
             </div>
           )}
-          <IconButton href="/cart" disableRipple>
+          <IconButton
+            href="/cart"
+            disableRipple="true"
+            sx={{
+              color: "black",
+              ":hover": {
+                backgroundColor: "transparent",
+                color: "#274e13",
+              },
+            }}
+          >
             <Badge
               badgeContent={
                 isLoggedIn
