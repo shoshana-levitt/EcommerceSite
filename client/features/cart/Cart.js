@@ -22,6 +22,7 @@ import {
   CardActionArea,
   Box,
 } from "@mui/material";
+import { ShoppingCartCheckout } from "@mui/icons-material";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -214,7 +215,11 @@ const Cart = () => {
         </Typography>
       )}
       {cartToShow[0] && (
-        <Button variation="contained" onClick={checkoutHandler}>
+        <Button
+          startIcon={<ShoppingCartCheckout />}
+          variation="contained"
+          onClick={checkoutHandler}
+        >
           Check Out
         </Button>
       )}
