@@ -86,6 +86,7 @@ const Cart = () => {
       delete window.localStorage.cart;
       dispatch(CartSlice.actions.clearCart());
     }
+    setEmptyOpen(false);
   };
 
   const incrementProductHandler = (product) => {
@@ -127,7 +128,7 @@ const Cart = () => {
         (oldProduct) => oldProduct.id !== product.id
       );
       window.localStorage.setItem("cart", JSON.stringify(savedCart));
-      setOpen(false);
+      setRemoveOpen(false);
       dispatch(CartSlice.actions.removeProduct(product));
     }
   };
@@ -142,14 +143,24 @@ const Cart = () => {
     navigate("/checkout");
   };
 
-  const [open, setOpen] = useState(false);
+  const [removeOpen, setRemoveOpen] = useState(false);
 
-  const handleOpen = () => {
-    setOpen(true);
+  const handleRemoveOpen = () => {
+    setRemoveOpen(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleRemoveClose = () => {
+    setRemoveOpen(false);
+  };
+
+  const [emptyOpen, setEmptyOpen] = useState(false);
+
+  const handleEmptyOpen = () => {
+    setEmptyOpen(true);
+  };
+
+  const handleEmptyClose = () => {
+    setEmptyOpen(false);
   };
 
   return (
@@ -159,9 +170,27 @@ const Cart = () => {
       )}
 
       {cartToShow[0] && (
-        <Button variation="countained" onClick={clearCartHandler}>
-          Empty Cart
-        </Button>
+        <div>
+          <Button variation="countained" onClick={handleEmptyOpen}>
+            Empty Cart
+          </Button>
+          {emptyOpen && (
+            <Dialog open={emptyOpen} onClose={handleEmptyClose}>
+              <DialogTitle>Clear Cart</DialogTitle>
+              <DialogContent>
+                <DialogContentText>
+                  Are you sure you want to clear your cart?
+                </DialogContentText>
+              </DialogContent>
+              <DialogActions>
+                <Button onClick={handleEmptyClose}>No</Button>
+                <Button onClick={() => clearCartHandler()}>
+                  Yes, Clear Cart
+                </Button>
+              </DialogActions>
+            </Dialog>
+          )}
+        </div>
       )}
       {cartToShow[0] &&
         cartToShow.map((product) => {
@@ -210,14 +239,14 @@ const Cart = () => {
                       </Button>
                     </ButtonGroup>
                     <Typography>${product.price.toFixed(2)}</Typography>
-                    <Button variation="contained" onClick={handleOpen}>
+                    <Button variation="contained" onClick={handleRemoveOpen}>
                       Remove
                     </Button>
                   </Stack>
                 </Stack>
               </Box>
-              {open && (
-                <Dialog open={open} onClose={handleClose}>
+              {removeOpen && (
+                <Dialog open={removeOpen} onClose={handleRemoveClose}>
                   <DialogTitle>Remove Puppy</DialogTitle>
                   <DialogContent>
                     <DialogContentText>
@@ -225,7 +254,7 @@ const Cart = () => {
                     </DialogContentText>
                   </DialogContent>
                   <DialogActions>
-                    <Button onClick={handleClose}>No</Button>
+                    <Button onClick={handleRemoveClose}>No</Button>
                     <Button onClick={() => removeProductHandler(product)}>
                       Yes, Remove
                     </Button>
