@@ -15,6 +15,7 @@ import {
   DialogContentText,
   DialogTitle,
 } from "@mui/material";
+import { AddShoppingCart } from "@mui/icons-material";
 
 const SinglePuppyView = () => {
   const dispatch = useDispatch();
@@ -29,15 +30,6 @@ const SinglePuppyView = () => {
   }, [dispatch]);
 
   const [clicked, setClicked] = useState(false);
-  // const [open, setOpen] = useState(false);
-
-  // const handleClickOpen = () => {
-  //   setOpen(true);
-  // };
-
-  // const handleClose = () => {
-  //   setOpen(false);
-  // };
 
   const addToCartHandler = async () => {
     if (isLoggedIn) {
@@ -78,6 +70,7 @@ const SinglePuppyView = () => {
                   <Typography>Price: ${puppy.price}</Typography>
                   <Typography>{puppy.description}</Typography>
                   <Button
+                    startIcon={<AddShoppingCart />}
                     variant="contained"
                     onClick={addToCartHandler}
                     sx={{ width: 200 }}
@@ -89,20 +82,6 @@ const SinglePuppyView = () => {
                       <Typography>Added to cart!</Typography>
                     </div>
                   )}
-                  {/* {open && (
-                    <Dialog open={open} onClose={handleClose}>
-                      <DialogTitle>{"Delete Lesson?"}</DialogTitle>
-                      <DialogContent>
-                        <DialogContentText>
-                          Are you sure? If you delete a lesson, it cannot be recovered.
-                        </DialogContentText>
-                      </DialogContent>
-                      <DialogActions>
-                        <Button onClick={handleClose}>No</Button>
-                        <Button>Yes, Delete</Button>
-                      </DialogActions>
-                    </Dialog>
-                  )} */}
                 </Stack>
               </Stack>
             </Box>
