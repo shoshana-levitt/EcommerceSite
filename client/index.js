@@ -9,14 +9,14 @@ import { ThemeProvider, createTheme } from "@mui/material";
 const root = createRoot(document.getElementById("app"));
 
 const theme = createTheme({
-  // palette: {
-  //   primary: {
-  //     main: "#dfdfdf",
-  //   },
-  //   secondary: {
-  //     main: "#303030",
-  //   },
-  // },
+  palette: {
+    primary: {
+      main: "#6aa84f",
+    },
+    secondary: {
+      main: "#93c47d",
+    },
+  },
 });
 
 root.render(
