@@ -118,7 +118,15 @@ const Navbar = () => {
                   Log Out
                 </Button>
                 <IconButton href="/user" disableRipple>
-                  <Avatar sx={{ bgcolor: "#93c47d" }}>
+                  <Avatar
+                    sx={{
+                      bgcolor: "#93c47d",
+                      color: "black",
+                      ":hover": {
+                        bgcolor: "#6aa84f",
+                      },
+                    }}
+                  >
                     {user.firstName.charAt(0)}
                   </Avatar>
                 </IconButton>
