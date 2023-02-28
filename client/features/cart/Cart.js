@@ -27,7 +27,7 @@ import {
   DialogContentText,
   DialogActions,
 } from "@mui/material";
-import { ShoppingCartCheckout } from "@mui/icons-material";
+import { ShoppingCartCheckout, RemoveShoppingCart } from "@mui/icons-material";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -173,7 +173,12 @@ const Cart = () => {
 
       {cartToShow[0] && (
         <div>
-          <Button variation="countained" onClick={handleEmptyOpen}>
+          <Button
+            startIcon={<RemoveShoppingCart />}
+            variation="countained"
+            onClick={handleEmptyOpen}
+            m={2}
+          >
             Clear Cart
           </Button>
           {emptyOpen && (
