@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { deleteSinglePuppy } from "../SinglePuppyView/SinglePuppySlice";
 import { fetchAllPuppiesAsync } from "../allpuppies/allpuppiesSlice";
-import { Button } from '@mui/material';
+import { Button } from "@mui/material";
 
 const DeletePuppyButton = (props) => {
   const { puppyId } = props;
@@ -14,7 +14,7 @@ const DeletePuppyButton = (props) => {
     evt.preventDefault();
     dispatch(deleteSinglePuppy(puppyId));
     dispatch(fetchAllPuppiesAsync());
-    navigate("/puppies");
+    navigate("/");
   };
 
   return (

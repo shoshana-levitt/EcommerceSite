@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import AuthForm from "../features/auth/AuthForm";
-import Home from "../features/home/Home";
 import { me } from "./store";
 import Allpuppies from "../features/allpuppies/Allpuppies";
 import SinglePuppyView from "../features/SinglePuppyView/SinglePuppyView";
@@ -30,9 +29,8 @@ const AppRoutes = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route
-          path="/puppies"
+          path="/"
           element={<Allpuppies name="allpuppies" displayName="All Puppies" />}
         />
         <Route path="/puppies/:id" element={<SinglePuppyView />} />

@@ -1,12 +1,16 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import Typography from "@mui/material/Typography";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Grid from "@mui/material/Grid";
-import { CardActionArea, Button, Box } from "@mui/material";
+import {
+  Typography,
+  Card,
+  CardContent,
+  CardMedia,
+  CardActionArea,
+  Box,
+  Grid,
+  Stack,
+} from "@mui/material";
 import { fetchAllPuppiesAsync, selectAllPuppies } from "./allpuppiesSlice";
 import { me } from "../auth/authSlice";
 import DeletePuppyButton from "../deletePuppy/DeletePuppyButton";
@@ -26,11 +30,13 @@ const Allpuppies = () => {
 
   return (
     <div>
-      <div position="sticky">
-        <Typography variant="h3" component="h2" align="center" sx={{ p: 2 }}>
-          Puppies
-        </Typography>
-      </div>
+      <Box sx={{ p: 2 }}>
+        <Stack justifyContent="center" alignItems="center" spacing={1}>
+          <Typography variant="h3">Grace Pupper</Typography>
+          <Typography variant="h6">Book a puppy playdate!</Typography>
+        </Stack>
+      </Box>
+
       <Box sx={{ width: "100%" }}>
         <Grid
           container

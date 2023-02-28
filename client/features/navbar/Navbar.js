@@ -14,7 +14,7 @@ import {
   Box,
   Stack,
 } from "@mui/material";
-import { ShoppingCart, Home } from "@mui/icons-material";
+import { ShoppingCart } from "@mui/icons-material";
 import { grey, blue } from "@mui/material/colors";
 import { fetchCart } from "../cart/CartSlice";
 
@@ -40,21 +40,8 @@ const Navbar = () => {
       <AppBar position="fixed" sx={{ bgcolor: "#b6d7a8" }}>
         <Toolbar sx={{ p: -1 }}>
           <Box sx={{ display: "flex", flexGrow: 1 }}>
-            <IconButton
-              href="/"
-              disableRipple="true"
-              sx={{
-                color: "black",
-                ":hover": {
-                  backgroundColor: "transparent",
-                  color: "#274e13",
-                },
-              }}
-            >
-              <Home></Home>
-            </IconButton>
             <Button
-              href="/puppies"
+              href="/"
               variant="text"
               disableRipple="true"
               sx={{
