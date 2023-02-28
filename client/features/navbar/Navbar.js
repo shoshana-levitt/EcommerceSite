@@ -14,8 +14,7 @@ import {
   Box,
   Stack,
 } from "@mui/material";
-import { ShoppingCart } from "@mui/icons-material";
-import { grey, blue } from "@mui/material/colors";
+import { ShoppingCart, Pets } from "@mui/icons-material";
 import { fetchCart } from "../cart/CartSlice";
 
 const Navbar = () => {
@@ -41,6 +40,7 @@ const Navbar = () => {
         <Toolbar sx={{ p: -1 }}>
           <Box sx={{ display: "flex", flexGrow: 1 }}>
             <Button
+              startIcon={<Pets />}
               href="/"
               variant="text"
               disableRipple="true"
@@ -53,7 +53,7 @@ const Navbar = () => {
                 },
               }}
             >
-              All Puppies
+              Browse Puppies
             </Button>
             {user.isAdmin && (
               <div>
