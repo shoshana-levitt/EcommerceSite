@@ -27,7 +27,11 @@ import {
   DialogContentText,
   DialogActions,
 } from "@mui/material";
-import { ShoppingCartCheckout, RemoveShoppingCart } from "@mui/icons-material";
+import {
+  ShoppingCartCheckout,
+  RemoveShoppingCart,
+  RemoveCircleOutline,
+} from "@mui/icons-material";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -175,7 +179,7 @@ const Cart = () => {
         <div>
           <Button
             startIcon={<RemoveShoppingCart />}
-            variation="countained"
+            variation="contained"
             onClick={handleEmptyOpen}
             m={2}
           >
@@ -246,7 +250,11 @@ const Cart = () => {
                       </Button>
                     </ButtonGroup>
                     <Typography>${product.price.toFixed(2)}</Typography>
-                    <Button variation="contained" onClick={handleRemoveOpen}>
+                    <Button
+                      startIcon={<RemoveCircleOutline />}
+                      variation="contained"
+                      onClick={handleRemoveOpen}
+                    >
                       Remove
                     </Button>
                   </Stack>
