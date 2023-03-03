@@ -1,13 +1,17 @@
 import React from "react";
-import { Typography } from "@mui/material";
+import { Typography, Box, Stack } from "@mui/material";
 
 const Checkout = () => {
   return (
     <div>
-      <Typography variant="h3">
-        Your order has been placed! Please check your email for your dog
-        appointment times.
-      </Typography>
+      <Box sx={{ p: 2 }}>
+        <Stack justifyContent="center" alignItems="center" spacing={1}>
+          <Typography variant="h3">Your booking was successful!</Typography>
+          <Typography variant="h6">
+            Please check your email for your full order details.
+          </Typography>
+        </Stack>
+      </Box>
     </div>
   );
 };
