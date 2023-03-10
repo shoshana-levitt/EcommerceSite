@@ -1,25 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { fetchSinglePuppy } from "./SinglePuppySlice";
-import { addToCart, CartSlice, fetchCart } from "../cart/CartSlice";
-import {
-  Typography,
-  Stack,
-  Button,
-  Box,
-  Skeleton,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-} from "@mui/material";
+import { addToCart } from "../cart/CartSlice";
+import { Typography, Stack, Button, Box, Skeleton } from "@mui/material";
 import { AddShoppingCart } from "@mui/icons-material";
 
 const SinglePuppyView = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const puppy = useSelector((state) => state.puppy);
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const userId = useSelector((state) => state.auth.me.id);
