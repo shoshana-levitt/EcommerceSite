@@ -3,7 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchSinglePuppy } from "./SinglePuppySlice";
 import { addToCart } from "../cart/CartSlice";
-import { Typography, Stack, Button, Box, Skeleton } from "@mui/material";
+import {
+  Typography,
+  Stack,
+  Button,
+  Box,
+  Skeleton,
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardContent,
+} from "@mui/material";
 import { AddShoppingCart } from "@mui/icons-material";
 
 const SinglePuppyView = () => {
@@ -37,40 +47,65 @@ const SinglePuppyView = () => {
       <div>
         {puppy.breed ? (
           <>
-            <Box sx={{ p: 2 }}>
-              <Stack direction="row" justifyContent="space-evenly">
-                <img src={puppy.photoURL} className="single-puppy-photo" />
-                <Stack
-                  direction="column"
-                  justifyContent="space-evenly"
-                  sx={{ my: 20 }}
-                >
-                  <Typography sx={{ fontSize: 50 }}>{puppy.name}</Typography>
-                  <Typography>
-                    Breed:{" "}
-                    {puppy.breed.charAt(0).toUpperCase() + puppy.breed.slice(1)}
-                  </Typography>
-                  <Typography>
-                    Color:{" "}
-                    {puppy.color.charAt(0).toUpperCase() + puppy.color.slice(1)}
-                  </Typography>
-                  <Typography>Age: {puppy.age}</Typography>
-                  <Typography>Price: ${puppy.price}</Typography>
-                  <Typography>{puppy.description}</Typography>
-                  <Button
-                    startIcon={<AddShoppingCart />}
-                    variant="contained"
-                    onClick={addToCartHandler}
-                    sx={{ width: 200 }}
+            <Box
+              m={2}
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Stack direction="row" alignItems="center">
+                <Card sx={{ width: 300 }}>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      height="250"
+                      image={puppy.photoURL}
+                      alt="puppy image"
+                    />
+                    <CardContent>
+                      <Typography
+                        gutterBottom
+                        variant="h5"
+                        component="div"
+                        align="center"
+                      >
+                        {puppy.name} the{" "}
+                        {puppy.breed.charAt(0).toUpperCase() +
+                          puppy.breed.slice(1)}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+                <Box sx={{ width: 500 }}>
+                  <Stack
+                    direction="column"
+                    alignItems="center"
+                    justifyContent="center"
+                    m={2}
                   >
-                    Add to cart
-                  </Button>
-                  {clicked && (
-                    <div>
-                      <Typography>Added to cart!</Typography>
-                    </div>
-                  )}
-                </Stack>
+                    <Typography>
+                      Breed:{" "}
+                      {puppy.breed.charAt(0).toUpperCase() +
+                        puppy.breed.slice(1)}
+                    </Typography>
+                    <Typography>
+                      Color:{" "}
+                      {puppy.color.charAt(0).toUpperCase() +
+                        puppy.color.slice(1)}
+                    </Typography>
+                    <Typography>Age: {puppy.age}</Typography>
+                    <Typography>Price: ${puppy.price}</Typography>
+                    <Typography>{puppy.description}</Typography>
+                    <Button
+                      startIcon={<AddShoppingCart />}
+                      variant="contained"
+                      onClick={addToCartHandler}
+                      sx={{ width: 200 }}
+                    >
+                      Add to cart
+                    </Button>
+                  </Stack>
+                </Box>
               </Stack>
             </Box>
           </>
