@@ -12,7 +12,6 @@ import {
   Card,
   CardActionArea,
   CardMedia,
-  CardContent,
 } from "@mui/material";
 import { AddShoppingCart } from "@mui/icons-material";
 
@@ -40,6 +39,9 @@ const SinglePuppyView = () => {
       window.localStorage.setItem("cart", JSON.stringify(savedCart));
     }
     setClicked(true);
+    setTimeout(() => {
+      setClicked(false);
+    }, 2000);
   };
 
   return (
@@ -97,6 +99,11 @@ const SinglePuppyView = () => {
                       >
                         Add to cart
                       </Button>
+                      {clicked && (
+                        <div>
+                          <Typography>Added to cart!</Typography>
+                        </div>
+                      )}
                     </Stack>
                   </Box>
                 </Stack>
