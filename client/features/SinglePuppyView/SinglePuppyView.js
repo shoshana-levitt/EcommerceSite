@@ -108,6 +108,10 @@ const SinglePuppyView = () => {
                   </Box>
                 </Stack>
                 <Box sx={{ width: 800 }} m={2}>
+                  <Typography sx={{ fontWeight: "bold" }}>
+                    About{" "}
+                    {puppy.name.charAt(0).toUpperCase() + puppy.name.slice(1)}:{" "}
+                  </Typography>
                   <Typography>{puppy.description}</Typography>
                 </Box>
               </Stack>
