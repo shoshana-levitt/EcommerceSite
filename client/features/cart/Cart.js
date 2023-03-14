@@ -171,7 +171,7 @@ const Cart = () => {
     <>
       {cartToShow[0] === undefined && (
         <Box m={2}>
-          <Typography variant="h3">Your cart is empty.</Typography>
+          <Typography variant="h4">Your cart is empty.</Typography>
         </Box>
       )}
 
