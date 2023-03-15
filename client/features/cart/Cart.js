@@ -283,7 +283,7 @@ const Cart = () => {
           );
         })}
       {cartToShow[0] && (
-        <Typography>
+        <Typography variant="h6" m={2}>
           Total Price: $
           {cartToShow
             .reduce((accum, product) => accum + product.price, 0)
