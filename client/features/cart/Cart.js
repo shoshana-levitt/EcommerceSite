@@ -177,6 +177,9 @@ const Cart = () => {
 
       {cartToShow[0] && (
         <div>
+          <Typography variant="h4" m={2}>
+            My Cart
+          </Typography>
           <Button
             startIcon={<RemoveShoppingCart />}
             variation="contained"
