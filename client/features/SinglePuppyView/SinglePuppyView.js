@@ -89,7 +89,7 @@ const SinglePuppyView = () => {
                           puppy.color.slice(1)}
                       </Typography>
                       <Typography>Age: {puppy.age}</Typography>
-                      <Typography>Price: ${puppy.price}</Typography>
+                      <Typography>Playdate Price: ${puppy.price}</Typography>
 
                       <Button
                         startIcon={<AddShoppingCart />}
