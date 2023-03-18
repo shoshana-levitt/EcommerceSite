@@ -17,6 +17,9 @@ const theme = createTheme({
       main: "#93c47d",
     },
   },
+  typography: {
+    fontFamily: ["Poppins", "sans-serif"].join(","),
+  },
 });
 
 root.render(
