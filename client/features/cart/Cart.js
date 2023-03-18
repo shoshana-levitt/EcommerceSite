@@ -247,7 +247,17 @@ const Cart = () => {
                       >
                         -
                       </Button>
-                      <Button disabled>{product.quantity}</Button>
+                      <Button
+                        sx={{
+                          "&.Mui-disabled": {
+                            background: "#6aa84f",
+                            color: "black",
+                          },
+                        }}
+                        disabled
+                      >
+                        {product.quantity}
+                      </Button>
                       <Button onClick={() => incrementProductHandler(product)}>
                         +
                       </Button>
