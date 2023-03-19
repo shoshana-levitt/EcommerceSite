@@ -213,26 +213,24 @@ const Cart = () => {
               <Box m={2}>
                 <Stack direction="row" alignItems="center">
                   <Card sx={{ width: 300 }}>
-                    <CardActionArea>
-                      <CardMedia
-                        component="img"
-                        height="250"
-                        image={product.photoURL}
-                        alt="puppy image"
-                      />
-                      <CardContent>
-                        <Typography
-                          gutterBottom
-                          variant="h5"
-                          component="div"
-                          align="center"
-                        >
-                          {product.name} the{" "}
-                          {product.breed.charAt(0).toUpperCase() +
-                            product.breed.slice(1)}
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
+                    <CardMedia
+                      component="img"
+                      height="250"
+                      image={product.photoURL}
+                      alt="puppy image"
+                    />
+                    <CardContent>
+                      <Typography
+                        gutterBottom
+                        variant="h5"
+                        component="div"
+                        align="center"
+                      >
+                        {product.name} the{" "}
+                        {product.breed.charAt(0).toUpperCase() +
+                          product.breed.slice(1)}
+                      </Typography>
+                    </CardContent>
                   </Card>
                   <Stack
                     direction="column"
