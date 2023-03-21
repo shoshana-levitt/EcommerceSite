@@ -58,14 +58,12 @@ const SinglePuppyView = () => {
               <Stack direction="column" alignItems="center">
                 <Stack direction="row" alignItems="center">
                   <Card sx={{ width: 300 }}>
-                    <CardActionArea>
-                      <CardMedia
-                        component="img"
-                        height="300"
-                        image={puppy.photoURL}
-                        alt="puppy image"
-                      />
-                    </CardActionArea>
+                    <CardMedia
+                      component="img"
+                      height="300"
+                      image={puppy.photoURL}
+                      alt="puppy image"
+                    />
                   </Card>
                   <Box sx={{ width: 500 }}>
                     <Stack
