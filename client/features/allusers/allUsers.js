@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllUsersAsync, selectAllUsers } from "./usersSlice";
 import {
-  Typography,
   Table,
   TableBody,
   TableCell,

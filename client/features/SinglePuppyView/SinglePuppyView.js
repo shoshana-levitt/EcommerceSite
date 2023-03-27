@@ -10,7 +10,6 @@ import {
   Box,
   Skeleton,
   Card,
-  CardActionArea,
   CardMedia,
 } from "@mui/material";
 import { AddShoppingCart } from "@mui/icons-material";
