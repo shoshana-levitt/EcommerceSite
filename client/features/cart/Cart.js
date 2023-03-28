@@ -213,15 +213,25 @@ const Cart = () => {
           return (
             <div key={product.id}>
               <Box m={2}>
-                <Stack direction="row" alignItems="center">
-                  <Card sx={{ width: 300 }}>
-                    <CardMedia
-                      component="img"
-                      height="250"
-                      image={product.photoURL}
-                      alt="puppy image"
-                    />
-                    <CardContent>
+                <Card
+                  sx={{ display: "flex", width: 600 }}
+                  style={{ backgroundColor: "transparent" }}
+                >
+                  <CardMedia
+                    component="img"
+                    height="250"
+                    image={product.photoURL}
+                    alt="puppy image"
+                    sx={{
+                      maxWidth: 300,
+                    }}
+                    background
+                  />
+                  <Box
+                    sx={{ display: "flex", flexDirection: "column" }}
+                    align="center"
+                  >
+                    <CardContent sx={{ width: 200 }} align="center">
                       <Typography
                         gutterBottom
                         variant="h5"
@@ -232,46 +242,41 @@ const Cart = () => {
                         {product.breed.charAt(0).toUpperCase() +
                           product.breed.slice(1)}
                       </Typography>
+                      <ButtonGroup variant="contained">
+                        <Button
+                          disabled={product.quantity < 2}
+                          onClick={() => decrementProductHandler(product)}
+                        >
+                          -
+                        </Button>
+                        <Button
+                          sx={{
+                            "&.Mui-disabled": {
+                              background: "#6aa84f",
+                              color: "black",
+                            },
+                          }}
+                          disabled
+                        >
+                          {product.quantity}
+                        </Button>
+                        <Button
+                          onClick={() => incrementProductHandler(product)}
+                        >
+                          +
+                        </Button>
+                      </ButtonGroup>
+                      <Typography>${product.price.toFixed(2)}</Typography>
+                      <Button
+                        startIcon={<RemoveCircleOutline />}
+                        variation="contained"
+                        onClick={handleRemoveOpen}
+                      >
+                        Remove
+                      </Button>
                     </CardContent>
-                  </Card>
-                  <Stack
-                    direction="column"
-                    alignItems="center"
-                    justifyContent="center"
-                    m={2}
-                  >
-                    <ButtonGroup variant="contained">
-                      <Button
-                        disabled={product.quantity < 2}
-                        onClick={() => decrementProductHandler(product)}
-                      >
-                        -
-                      </Button>
-                      <Button
-                        sx={{
-                          "&.Mui-disabled": {
-                            background: "#6aa84f",
-                            color: "black",
-                          },
-                        }}
-                        disabled
-                      >
-                        {product.quantity}
-                      </Button>
-                      <Button onClick={() => incrementProductHandler(product)}>
-                        +
-                      </Button>
-                    </ButtonGroup>
-                    <Typography>${product.price.toFixed(2)}</Typography>
-                    <Button
-                      startIcon={<RemoveCircleOutline />}
-                      variation="contained"
-                      onClick={handleRemoveOpen}
-                    >
-                      Remove
-                    </Button>
-                  </Stack>
-                </Stack>
+                  </Box>
+                </Card>
               </Box>
               {removeOpen && (
                 <Dialog open={removeOpen} onClose={handleRemoveClose}>
