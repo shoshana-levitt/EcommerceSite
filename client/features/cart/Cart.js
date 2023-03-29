@@ -279,7 +279,11 @@ const Cart = () => {
                 </Card>
               </Box>
               {removeOpen && (
-                <Dialog open={removeOpen} onClose={handleRemoveClose}>
+                <Dialog
+                  open={removeOpen}
+                  onClose={handleRemoveClose}
+                  BackdropProps={{ style: { backgroundColor: "transparent" } }}
+                >
                   <DialogTitle>Remove Puppy</DialogTitle>
                   <DialogContent>
                     <DialogContentText>
