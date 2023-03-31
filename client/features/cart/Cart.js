@@ -191,7 +191,11 @@ const Cart = () => {
             Clear Cart
           </Button>
           {emptyOpen && (
-            <Dialog open={emptyOpen} onClose={handleEmptyClose}>
+            <Dialog
+              open={emptyOpen}
+              onClose={handleEmptyClose}
+              BackdropProps={{ style: { backgroundColor: "transparent" } }}
+            >
               <DialogTitle>Clear Cart</DialogTitle>
               <DialogContent>
                 <DialogContentText>
