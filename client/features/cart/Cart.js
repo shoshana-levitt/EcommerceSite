@@ -227,55 +227,43 @@ const Cart = () => {
                     }}
                     background
                   />
-                  <Box
-                    sx={{ display: "flex", flexDirection: "column" }}
-                    align="center"
-                  >
-                    <CardContent sx={{ width: 200 }} align="center">
-                      <Typography
-                        gutterBottom
-                        variant="h5"
-                        component="div"
-                        align="center"
-                      >
-                        {product.name} the{" "}
-                        {product.breed.charAt(0).toUpperCase() +
-                          product.breed.slice(1)}
-                      </Typography>
-                      <ButtonGroup variant="contained">
-                        <Button
-                          disabled={product.quantity < 2}
-                          onClick={() => decrementProductHandler(product)}
-                        >
-                          -
-                        </Button>
-                        <Button
-                          sx={{
-                            "&.Mui-disabled": {
-                              background: "#6aa84f",
-                              color: "black",
-                            },
-                          }}
-                          disabled
-                        >
-                          {product.quantity}
-                        </Button>
-                        <Button
-                          onClick={() => incrementProductHandler(product)}
-                        >
-                          +
-                        </Button>
-                      </ButtonGroup>
-                      <Typography>${product.price.toFixed(2)}</Typography>
+                  <CardContent sx={{ width: 200 }} align="center">
+                    <Typography gutterBottom variant="h5" component="div">
+                      {product.name} the{" "}
+                      {product.breed.charAt(0).toUpperCase() +
+                        product.breed.slice(1)}
+                    </Typography>
+                    <ButtonGroup variant="contained">
                       <Button
-                        startIcon={<RemoveCircleOutline />}
-                        variation="contained"
-                        onClick={handleRemoveOpen}
+                        disabled={product.quantity < 2}
+                        onClick={() => decrementProductHandler(product)}
                       >
-                        Remove
+                        -
                       </Button>
-                    </CardContent>
-                  </Box>
+                      <Button
+                        sx={{
+                          "&.Mui-disabled": {
+                            background: "#6aa84f",
+                            color: "black",
+                          },
+                        }}
+                        disabled
+                      >
+                        {product.quantity}
+                      </Button>
+                      <Button onClick={() => incrementProductHandler(product)}>
+                        +
+                      </Button>
+                    </ButtonGroup>
+                    <Typography>${product.price.toFixed(2)}</Typography>
+                    <Button
+                      startIcon={<RemoveCircleOutline />}
+                      variation="contained"
+                      onClick={handleRemoveOpen}
+                    >
+                      Remove
+                    </Button>
+                  </CardContent>
                 </Card>
               </Box>
               {removeOpen && (
