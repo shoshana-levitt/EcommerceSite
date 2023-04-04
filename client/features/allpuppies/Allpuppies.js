@@ -37,7 +37,7 @@ const Allpuppies = () => {
         </Stack>
       </Box>
 
-      <Box sx={{ width: "100%" }}>
+      <Box sx={{ width: "100%" }} align="center">
         <Grid
           container
           direction="row"
