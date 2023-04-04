@@ -171,7 +171,7 @@ const Cart = () => {
         <Box m={2}>
           <Typography variant="h4">Your cart is empty.</Typography>
           <Typography variant="h6">Book a puppy playdate!</Typography>
-          <Button href="/allusers" variant="contained" sx={{ width: 200 }}>
+          <Button href="/" variant="contained" sx={{ width: 200 }}>
             Browse Puppies
           </Button>
         </Box>
