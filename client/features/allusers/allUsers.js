@@ -31,7 +31,7 @@ const AllUsers = () => {
   });
 
   return (
-    <TableContainer component={Paper} sx={{ m: 1 }}>
+    <TableContainer component={Paper} sx={{ m: 1, height: 600 }}>
       <Table sx={{ minWidth: 650 }}>
         <TableHead>
           <TableRow>
