@@ -32,7 +32,7 @@ const AllUsers = () => {
 
   return (
     <TableContainer component={Paper} sx={{ m: 1, height: 600 }}>
-      <Table sx={{ minWidth: 650 }}>
+      <Table stickyHeader sx={{ minWidth: 650 }}>
         <TableHead>
           <TableRow>
             <TableCell align="left">User ID</TableCell>
