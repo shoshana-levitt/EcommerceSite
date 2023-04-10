@@ -33,11 +33,11 @@ const AllUsers = () => {
   return (
     <TableContainer
       component={Paper}
-      sx={{ m: 1, height: 600, backgroundColor: "transparent" }}
+      sx={{ m: 1, height: "88vh", backgroundColor: "transparent" }}
     >
       <Table
         stickyHeader
-        sx={{ minWidth: 650, backgroundColor: "transparent" }}
+        sx={{ minWidth: 500, backgroundColor: "transparent" }}
       >
         <TableHead>
           <TableRow>
