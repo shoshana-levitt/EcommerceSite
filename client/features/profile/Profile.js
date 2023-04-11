@@ -17,8 +17,10 @@ const Profile = () => {
         <Typography variant="h2">
           Welcome, {user.firstName} {user.lastName}!
         </Typography>
-        {user.isAdmin && (
-          <Typography variant="h3">ADMINISTRATOR ACCOUNT</Typography>
+        {user.isAdmin ? (
+          <Typography variant="h4">Account Type: Administrator</Typography>
+        ) : (
+          <Typography variant="h4">Account Type: Basic</Typography>
         )}
       </Box>
     </div>
