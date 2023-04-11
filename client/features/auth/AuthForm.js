@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { authenticate } from "../../app/store";
-import { TextField, Button, Grid } from "@mui/material";
+import { TextField, Button, Grid, Typography } from "@mui/material";
 
 /**
   The AuthForm component can be used for Login or Sign Up.
@@ -50,7 +50,7 @@ const AuthForm = ({ name, displayName }) => {
   return (
     <div>
       {!isSignup ? (
-        <p>Already have an account with us?</p>
+        <Typography>Already have an account with us?</Typography>
       ) : (
         <p>Create an account</p>
       )}
@@ -110,7 +110,7 @@ const AuthForm = ({ name, displayName }) => {
       </form>
       {!isSignup && (
         <>
-          <p>New Visitor?</p>
+          <Typography>New Visitor?</Typography>
           <form onSubmit={handleSignup}>
             <Grid container>
               <Grid item xs={6}>
