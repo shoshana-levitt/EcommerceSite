@@ -52,7 +52,7 @@ const AuthForm = ({ name, displayName }) => {
       {!isSignup ? (
         <Typography>Already have an account with us?</Typography>
       ) : (
-        <p>Create an account</p>
+        <Typography>Create an account</Typography>
       )}
       <form onSubmit={handleSubmit} name={name}>
         <Grid container>
