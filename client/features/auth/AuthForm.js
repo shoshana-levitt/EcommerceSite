@@ -59,7 +59,7 @@ const AuthForm = ({ name, displayName }) => {
           <Grid item xs={6}>
             <TextField
               variant="outlined"
-              label="email"
+              label="Email"
               name="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -68,7 +68,7 @@ const AuthForm = ({ name, displayName }) => {
             />
             <TextField
               variant="outlined"
-              label="password"
+              label="Password"
               name="password"
               type="password"
               required
@@ -104,7 +104,7 @@ const AuthForm = ({ name, displayName }) => {
               <Grid item xs={6}>
                 <TextField
                   variant="outlined"
-                  label="email"
+                  label="Email"
                   name="username"
                   type="email"
                   required
