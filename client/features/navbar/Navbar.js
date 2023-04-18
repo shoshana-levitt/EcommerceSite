@@ -63,7 +63,7 @@ const Navbar = () => {
                   disableRipple="true"
                   sx={{
                     m: 1,
-                    color: "black",
+                    color: "blue",
                     ":hover": {
                       backgroundColor: "transparent",
                       color: "#274e13",
