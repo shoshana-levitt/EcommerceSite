@@ -77,7 +77,6 @@ const Navbar = () => {
           </Box>
           {isLoggedIn ? (
             <div>
-              {/* The navbar will show these links after you log in */}
               <Stack
                 direction="row"
                 alignItems="center"
