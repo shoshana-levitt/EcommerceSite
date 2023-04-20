@@ -18,7 +18,12 @@ const Profile = () => {
           Welcome, {user.firstName} {user.lastName}!
         </Typography>
         {user.isAdmin ? (
-          <Typography variant="h4">Account Type: Administrator</Typography>
+          <>
+            <Typography variant="h4">Account Type: Administrator</Typography>
+            <Typography variant="h6">
+              As an admin, you can view all users on the platform.
+            </Typography>
+          </>
         ) : (
           <Typography variant="h4">Account Type: Basic</Typography>
         )}
