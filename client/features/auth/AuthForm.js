@@ -50,9 +50,9 @@ const AuthForm = ({ name, displayName }) => {
   return (
     <div>
       {!isSignup ? (
-        <Typography>Already have an account with us?</Typography>
+        <Typography>Existing User?</Typography>
       ) : (
-        <Typography>Create an account</Typography>
+        <Typography>Create An Account</Typography>
       )}
       <form onSubmit={handleSubmit} name={name}>
         <Grid container>
