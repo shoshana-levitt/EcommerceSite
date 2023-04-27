@@ -49,10 +49,7 @@ const AllUsers = () => {
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
+            <TableRow key={row.name}>
               <TableCell align="left">{row.id}</TableCell>
               <TableCell align="left">{row.firstName}</TableCell>
               <TableCell align="left">{row.lastName}</TableCell>
