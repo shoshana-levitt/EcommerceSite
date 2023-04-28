@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 
 const AllUsers = () => {
-  const allUsers = useSelector(selectAllUsers);
+  const allUsers = [...useSelector(selectAllUsers)].sort((a, b) => a.id - b.id);
   const dispatch = useDispatch();
 
   useEffect(() => {
