@@ -83,7 +83,7 @@ const Navbar = () => {
                 justifyContent="center"
               >
                 {user.isAdmin && (
-                  <Typography align="center" color="blue">
+                  <Typography align="center" color="blue" variant="subtitle2">
                     ADMIN VIEW
                   </Typography>
                 )}
