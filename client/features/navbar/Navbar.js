@@ -63,7 +63,7 @@ const Navbar = () => {
                   disableRipple="true"
                   sx={{
                     m: 1,
-                    color: "green",
+                    color: "black",
                     ":hover": {
                       backgroundColor: "transparent",
                       color: "#274e13",
@@ -83,7 +83,7 @@ const Navbar = () => {
                 justifyContent="center"
               >
                 {user.isAdmin && (
-                  <Typography align="center" color="blue" variant="subtitle2">
+                  <Typography align="center" color="green" variant="subtitle2">
                     ADMIN VIEW
                   </Typography>
                 )}
