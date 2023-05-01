@@ -14,7 +14,7 @@ import {
   Box,
   Stack,
 } from "@mui/material";
-import { ShoppingCart, Pets } from "@mui/icons-material";
+import { ShoppingCart, Pets, AdminPanelSettings } from "@mui/icons-material";
 import { fetchCart } from "../cart/CartSlice";
 
 const Navbar = () => {
@@ -83,9 +83,20 @@ const Navbar = () => {
                 justifyContent="center"
               >
                 {user.isAdmin && (
-                  <Typography align="center" color="green" variant="subtitle2">
-                    ADMIN VIEW
-                  </Typography>
+                  <>
+                    <AdminPanelSettings
+                      fontSize="small"
+                      style={{ color: "green" }}
+                    />
+                    <Typography
+                      align="center"
+                      color="green"
+                      variant="subtitle2"
+                    >
+                      {" "}
+                      ADMIN VIEW
+                    </Typography>
+                  </>
                 )}
                 <Button
                   onClick={logoutAndRedirectHome}
