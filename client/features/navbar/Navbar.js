@@ -82,22 +82,6 @@ const Navbar = () => {
                 alignItems="center"
                 justifyContent="center"
               >
-                {user.isAdmin && (
-                  <>
-                    <AdminPanelSettings
-                      fontSize="small"
-                      style={{ color: "green" }}
-                    />
-                    <Typography
-                      align="center"
-                      color="green"
-                      variant="subtitle2"
-                    >
-                      {" "}
-                      ADMIN VIEW
-                    </Typography>
-                  </>
-                )}
                 <Button
                   onClick={logoutAndRedirectHome}
                   variant="text"
@@ -114,6 +98,22 @@ const Navbar = () => {
                 >
                   Log Out
                 </Button>
+                {user.isAdmin && (
+                  <>
+                    <AdminPanelSettings
+                      fontSize="small"
+                      style={{ color: "green" }}
+                    />
+                    <Typography
+                      align="center"
+                      color="green"
+                      variant="subtitle2"
+                    >
+                      {" "}
+                      ADMIN VIEW
+                    </Typography>
+                  </>
+                )}
                 <IconButton href="/user" disableRipple>
                   <Avatar
                     sx={{
