@@ -278,7 +278,7 @@ const Cart = () => {
                   <DialogTitle>Remove Puppy</DialogTitle>
                   <DialogContent>
                     <DialogContentText>
-                      Are you sure you want to remove this puppy?
+                      Are you sure you want to remove this puppy playdate?
                     </DialogContentText>
                   </DialogContent>
                   <DialogActions>
