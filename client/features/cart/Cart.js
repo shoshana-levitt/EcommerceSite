@@ -254,7 +254,10 @@ const Cart = () => {
                       >
                         {product.quantity}
                       </Button>
-                      <Button onClick={() => incrementProductHandler(product)}>
+                      <Button
+                        disabled={product.quantity > 9}
+                        onClick={() => incrementProductHandler(product)}
+                      >
                         +
                       </Button>
                     </ButtonGroup>
