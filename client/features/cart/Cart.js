@@ -23,6 +23,7 @@ import {
   DialogContent,
   DialogContentText,
   DialogActions,
+  Slide,
 } from "@mui/material";
 import {
   ShoppingCartCheckout,
@@ -164,6 +165,10 @@ const Cart = () => {
     setEmptyOpen(false);
   };
 
+  const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+  });
+
   return (
     <>
       {cartToShow[0] === undefined && (
@@ -274,6 +279,7 @@ const Cart = () => {
               </Box>
               {removeOpen && (
                 <Dialog
+                  TransitionComponent={Transition}
                   open={removeOpen}
                   onClose={handleRemoveClose}
                   BackdropProps={{ style: { backgroundColor: "transparent" } }}
