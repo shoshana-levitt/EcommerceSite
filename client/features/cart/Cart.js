@@ -196,6 +196,7 @@ const Cart = () => {
           </Button>
           {emptyOpen && (
             <Dialog
+              TransitionComponent={Transition}
               open={emptyOpen}
               onClose={handleEmptyClose}
               BackdropProps={{ style: { backgroundColor: "transparent" } }}
