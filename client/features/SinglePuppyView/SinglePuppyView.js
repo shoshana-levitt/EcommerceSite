@@ -11,6 +11,7 @@ import {
   Skeleton,
   Card,
   CardMedia,
+  Badge,
 } from "@mui/material";
 import { AddShoppingCart } from "@mui/icons-material";
 
@@ -97,9 +98,19 @@ const SinglePuppyView = () => {
                         Add to cart
                       </Button>
                       {clicked && (
-                        <div>
-                          <Typography>Added to cart!</Typography>
-                        </div>
+                        <Badge
+                          badgeContent={"Added to cart!"}
+                          className="titleSaveIcon"
+                          color="secondary"
+                          sx={{
+                            "& .MuiBadge-badge": {
+                              fontSize: 14,
+                              height: 30,
+                              minWidth: 100,
+                            },
+                          }}
+                          style={{ transform: "translate(0px, 30px)" }}
+                        ></Badge>
                       )}
                     </Stack>
                   </Box>
