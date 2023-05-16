@@ -317,6 +317,7 @@ const Cart = () => {
           startIcon={<ShoppingCartCheckout />}
           variation="contained"
           onClick={checkoutHandler}
+          sx={{ marginLeft: 2 }}
         >
           Check Out
         </Button>
