@@ -24,6 +24,7 @@ import {
   DialogContentText,
   DialogActions,
   Slide,
+  Stack,
 } from "@mui/material";
 import {
   ShoppingCartCheckout,
@@ -172,15 +173,16 @@ const Cart = () => {
   return (
     <>
       {cartToShow[0] === undefined && (
-        <Box m={2}>
-          <Typography variant="h4">Your cart is empty.</Typography>
-          <Typography variant="h6">Book a puppy playdate!</Typography>
-          <Button href="/" variant="contained" sx={{ width: 200 }}>
-            Browse Puppies
-          </Button>
+        <Box sx={{ p: 2 }}>
+          <Stack justifyContent="center" alignItems="center" spacing={1}>
+            <Typography variant="h3">Your cart is empty.</Typography>
+            <Typography variant="h6">Book a puppy playdate!</Typography>
+            <Button href="/" variant="contained" sx={{ width: 200 }}>
+              Browse Puppies
+            </Button>
+          </Stack>
         </Box>
       )}
-
       {cartToShow[0] && (
         <div>
           <Typography variant="h4" m={2}>

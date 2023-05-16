@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Box, Stack } from "@mui/material";
+import { Typography, Box, Stack, Button } from "@mui/material";
 
 const Checkout = () => {
   return (
@@ -12,6 +12,9 @@ const Checkout = () => {
           <Typography variant="h6">
             Please check your email for your full order details.
           </Typography>
+          <Button href="/" variant="contained" sx={{ width: 200 }}>
+            Browse Puppies
+          </Button>
         </Stack>
       </Box>
     </div>
