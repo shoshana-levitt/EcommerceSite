@@ -192,7 +192,7 @@ const Cart = () => {
             startIcon={<RemoveShoppingCart />}
             variation="contained"
             onClick={handleEmptyOpen}
-            m={2}
+            sx={{ marginLeft: 2 }}
           >
             Clear Cart
           </Button>
