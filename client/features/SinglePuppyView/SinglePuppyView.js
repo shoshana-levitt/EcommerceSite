@@ -95,7 +95,7 @@ const SinglePuppyView = () => {
                         onClick={addToCartHandler}
                         sx={{ width: 200 }}
                       >
-                        Add to cart
+                        Add playdate
                       </Button>
                       {clicked && (
                         <Badge
